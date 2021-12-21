@@ -72,12 +72,9 @@ public class Main {
                         break;}
                 }
                 else System.out.println("Incorrect type!");
-                if (console.hasNextInt() && console.nextInt() > 0) {
-
                 }
             }
         }
-    }
     /**
      * Function that check, what symbol was entered: number or not.
      * @param s
