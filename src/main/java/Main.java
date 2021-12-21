@@ -6,15 +6,29 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 import java.util.*;
+import java.io.File;
 
 /**
  * Main class for work demonstration.
  */
 public class Main {
+    /**
+     * Work demonstration.
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         System.out.println("Enter the way to CSV file : ");
+        System.out.print(">");
         Scanner console = new Scanner(System.in);
         String path = console.nextLine();
+        File f=new File(path);
+        while(!f.exists()) {
+            System.out.println("Incorrect way or file does not exist.");
+            System.out.print(">");
+            path = console.nextLine();
+            f = new File(path);
+        }
         String separator = ";"; //444
         int size = 0;
         List<Person> companyList = new LinkedList<>();
@@ -35,15 +49,14 @@ public class Main {
             }
 
             System.out.println("Input the count of values : ");
-            while (true) {
-                String k = console.next();
-                if (isDigit(k)) {
-                    if (Integer.parseInt(k) <= 0) System.out.println("Incorrect input!");
-                    else {
-                        size = Integer.parseInt(k);
-                        break;
-                    }
-                } else System.out.println("Incorrect type!");
+            while(true) {
+                String k= console.next();
+                if (isDigit(k)){
+                    if(Integer.parseInt(k)<=0) System.out.println("Incorrect input!");
+                    else{size=Integer.parseInt(k);
+                        break;}
+                }
+                else System.out.println("Incorrect type!");
                 while (!console.hasNextInt() || console.nextInt() <= 0) {
                     System.out.println("Incorrect type!");
                     console.next();
@@ -67,13 +80,19 @@ public class Main {
                 }
             }
         }
-        private static boolean isDigit (String s) throws NumberFormatException {
-            try {
-                Integer.parseInt(s);
-                return true;
-            } catch (NumberFormatException e) {
-                return false;
-            }
+    }
+    /**
+     * Function that check, what symbol was entered: number or not.
+     * @param s
+     * @return boolean type: number=true; not number=false;
+     * @throws NumberFormatException
+     */
+    private static boolean isDigit(String s) throws NumberFormatException {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 }
