@@ -49,6 +49,7 @@ public class Main {
             }
 
             System.out.println("Input the count of values : ");
+            System.out.print(">");
             while(true) {
                 String k= console.next();
                 if (isDigit(k)){
