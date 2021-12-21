@@ -54,7 +54,7 @@ public class Main {
                 if (isDigit(k)){
                     if(Integer.parseInt(k)<=0) System.out.println("Incorrect input!");
                     else{size=Integer.parseInt(k);
-                        System.out.println("Id\t\tName\tGender  Division Birthday   Salary");
+                        System.out.println("Id\t\tName\t\tGender  Division Birthday   Salary");
                         for (int i = 0; i < companyList.size() && i < size; i++) {
                             System.out.print(companyList.get(i).getID() + "\t");
                             System.out.print(companyList.get(i).getName() + "\t");
