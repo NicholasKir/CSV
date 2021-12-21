@@ -34,4 +34,26 @@ public class Subdivision {
     public String getName() {
         return name;
     }
+
+    /**
+     * equals method
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Subdivision that = (Subdivision) o;
+        return ID == that.ID && Objects.equals(name, that.name);
+    }
+
+    /**
+     * hashcode method
+     * @return
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(ID, name);
+    }
 }

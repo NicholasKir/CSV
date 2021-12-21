@@ -88,4 +88,25 @@ public class Person {
                 this.getSubdivisionID() + " " + this.getSubdivisionName() + " " + this.getSalary();
     }
 
+    /**
+     * equals method
+     * @param o
+     * @return
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) && Objects.equals(gender, person.gender) && Objects.equals(subdivision, person.subdivision) && Objects.equals(ID, person.ID) && Objects.equals(birthDate, person.birthDate) && Objects.equals(salary, person.salary);
+    }
+
+    /**
+     * hashcode method
+     * @return
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, gender, subdivision, ID, birthDate, salary);
+    }
 }
